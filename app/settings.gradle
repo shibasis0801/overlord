@@ -1,2 +1,5 @@
 include ':app'
+include ':core'
+project(":core").projectDir = new File("../common/core")
 rootProject.name = "Overlord"
+

@@ -15,15 +15,18 @@ kotlin {
             kotlinOptions.jvmTarget = "1.8"
         }
     }
-    js {
+    js(IR) {
         browser {
+            webpackTask {
+                output.libraryTarget = "commonjs2"
+            }
             testTask {
                 useKarma {
                     useChromeHeadless()
-                    webpackConfig.cssSupport.enabled = true
                 }
             }
         }
+        binaries.executable()
     }
     val hostOs = System.getProperty("os.name")
     val isMingwX64 = hostOs.startsWith("Windows")
@@ -73,6 +76,10 @@ kotlin {
     }
 }
 
+
+tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJsCompile::class.java).named("compileKotlinJs") {
+    kotlinOptions.moduleKind = "commonjs"
+}
 
 dependencies {
     "kapt"(project(":processor"))
