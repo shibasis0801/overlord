@@ -6,8 +6,8 @@
         <dependsOnModuleNames>:base:commonTest</dependsOnModuleNames>
         <sourceSets>
           <sourceSet>common.base.commonTest</sourceSet>
-          <sourceSet>common.base.nativeMain</sourceSet>
           <sourceSet>common.base.commonMain</sourceSet>
+          <sourceSet>common.base.nativeMain</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <externalSystemTestTasks>

@@ -37,7 +37,3 @@ interface ServerAPI {
     fun getHelloWorld()
 }
 
-
-@ExperimentalJsExport
-@JsExport
-val serverAPI = ServerAPIImpl()

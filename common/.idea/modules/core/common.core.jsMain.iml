@@ -8,8 +8,8 @@
           <dependsOn>:core:commonMain</dependsOn>
         </dependsOnModuleNames>
         <sourceSets>
-          <sourceSet>common.core.commonMain</sourceSet>
           <sourceSet>common.core.build</sourceSet>
+          <sourceSet>common.core.commonMain</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <productionOutputPath>$MODULE_DIR$/../../../build/js/packages/common-core/kotlin/common-core.js</productionOutputPath>

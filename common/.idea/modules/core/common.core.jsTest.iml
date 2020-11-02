@@ -5,10 +5,10 @@
       <configuration version="3" platform="JavaScript " allPlatforms="JS []" useProjectSettings="false" isTestModule="true" externalProjectId=":core">
         <dependsOnModuleNames>:core:commonTest</dependsOnModuleNames>
         <sourceSets>
-          <sourceSet>common.core.commonTest</sourceSet>
-          <sourceSet>common.core.commonMain</sourceSet>
           <sourceSet>common.core.jsMain</sourceSet>
+          <sourceSet>common.core.commonTest</sourceSet>
           <sourceSet>common.core.build</sourceSet>
+          <sourceSet>common.core.commonMain</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <externalSystemTestTasks>
