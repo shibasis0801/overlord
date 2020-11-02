@@ -6,7 +6,7 @@ actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) ->
     private val future = CompletableFuture<T>()
 
     actual fun <R> then(onFulfilled: ((T) -> R)?): CompletablePromise<R> {
-
+        TODO("Not yet implemented")
     }
 
     actual fun <R> catch(onRejected: (Throwable) -> R): CompletablePromise<R> {
