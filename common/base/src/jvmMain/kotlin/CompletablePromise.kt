@@ -3,20 +3,24 @@ package com.overlord.annotations
 import java.util.concurrent.CompletableFuture
 
 actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) -> Unit, reject: (Throwable) -> Unit) -> Unit) {
-    val future = CompletableFuture<T>()
+    private val future = CompletableFuture<T>()
+
     actual fun <R> then(onFulfilled: ((T) -> R)?): CompletablePromise<R> {
-        TODO("Not yet implemented")
+
     }
 
     actual fun <R> catch(onRejected: (Throwable) -> R): CompletablePromise<R> {
         TODO("Not yet implemented")
     }
+
+    actual companion object {
+        actual fun <T> resolve(value: T): CompletablePromise<T> {
+            TODO("Not yet implemented")
+        }
+
+        actual fun <T> reject(value: Throwable): CompletablePromise<Nothing> {
+            TODO("Not yet implemented")
+        }
+    }
 }
 
-actual fun <T> CompletablePromise<T>.resolve(value: T): CompletablePromise<T> {
-    TODO("Not yet implemented")
-}
-
-actual fun <T> CompletablePromise<T>.reject(value: Throwable): CompletablePromise<Nothing> {
-    TODO("Not yet implemented")
-}

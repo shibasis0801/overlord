@@ -8,12 +8,14 @@ actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) ->
     actual fun <R> catch(onRejected: (Throwable) -> R): CompletablePromise<R> {
         TODO("Not yet implemented")
     }
-}
 
-actual fun <T> CompletablePromise<T>.resolve(value: T): CompletablePromise<T> {
-    TODO("Not yet implemented")
-}
+    actual companion object {
+        actual fun <T> resolve(value: T): CompletablePromise<T> {
+            TODO("Not yet implemented")
+        }
 
-actual fun <T> CompletablePromise<T>.reject(value: Throwable): CompletablePromise<Nothing> {
-    TODO("Not yet implemented")
+        actual fun <T> reject(value: Throwable): CompletablePromise<Nothing> {
+            TODO("Not yet implemented")
+        }
+    }
 }
