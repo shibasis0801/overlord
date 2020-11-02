@@ -2,7 +2,8 @@ package com.overlord.annotations
 
 import java.util.concurrent.CompletableFuture
 
-actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) -> Unit, reject: (Throwable) -> Unit) -> Unit): CompletableFuture<T>() {
+actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) -> Unit, reject: (Throwable) -> Unit) -> Unit) {
+    val future = CompletableFuture<T>()
     actual fun <R> then(onFulfilled: ((T) -> R)?): CompletablePromise<R> {
         TODO("Not yet implemented")
     }
