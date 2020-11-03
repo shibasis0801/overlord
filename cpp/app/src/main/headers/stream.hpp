@@ -1,10 +1,7 @@
 #ifndef STREAM_HPP
 #define STREAM_HPP
 
-#include "macro.hpp"
-#include <vector>
-#include <algorithm>
-#include <iterator>
+#include "base.hpp"
 
 using namespace std;
 /*

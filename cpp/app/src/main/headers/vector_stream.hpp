@@ -1,9 +1,7 @@
 #ifndef VECTOR_STREAM_HPP
 #define VECTOR_STREAM_HPP
 
-#include "macro.hpp"
-#include <vector>
-#include <algorithm>
+#include "base.hpp"
 
 using std::vector;
 using std::transform;

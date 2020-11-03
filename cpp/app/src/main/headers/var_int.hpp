@@ -4,13 +4,7 @@
  * :D
  */
 
-#include <algorithm>
-#include <iterator>
-#include <vector>
-#include <iostream>
-#include <numeric>
-#include <string>
-
+#include "base.hpp"
 using namespace std;
 
 #define rep(i, n) for(int i = 0; i < n; ++i)

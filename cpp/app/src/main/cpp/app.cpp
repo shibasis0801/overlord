@@ -3,15 +3,13 @@
  */
 
 #include <iostream>
-#include <stdlib.h>
-#include "app.h"
+#include "app.hpp"
 
-std::string cpp::Greeter::greeting() {
-    return std::string("Hello, World!");
-}
+using namespace std;
+using namespace ovd;
 
 int main () {
-    cpp::Greeter greeter;
-    std::cout << greeter.greeting() << std::endl;
+    Greeter greeter;
+    cout << greeter.greeting() << endl;
     return 0;
 }

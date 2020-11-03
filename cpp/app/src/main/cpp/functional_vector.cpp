@@ -25,7 +25,7 @@
 #include <numeric>
 #include <initializer_list>
 
-#include "../include/print.hpp"
+#include "../../../../lib/include/print.hpp"
 #include "../include/macro.hpp"
 
 using namespace std;

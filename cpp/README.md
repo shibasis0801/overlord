@@ -12,7 +12,7 @@ A range is a datatype you can use in range for loops. It is made with only primi
 
 ### Basic
 
-```cpp
+```ovd
 for (int i : range(0, 10))
     cout << i << ", ";
 ```
@@ -28,7 +28,7 @@ Python equivalent
 
 ### With custom step
 
-```cpp
+```ovd
 for (int i : range(0, 10).step(2))
     cout << i << ", ";
 ```
@@ -48,7 +48,7 @@ for i in range(0, 10)[::2]:
 ```
 
 ### Reverse
-```cpp
+```ovd
 for (int i : range(10, 0).step(-1))
     cout << i << ", ";
 ```

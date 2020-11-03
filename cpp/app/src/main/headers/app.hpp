@@ -5,11 +5,14 @@
 #define APP_H
 
 #include <string>
+using namespace std;
 
-namespace cpp {
+namespace ovd {
     class Greeter {
         public:
-        std::string greeting();
+        string greeting() {
+            return "Hello World";
+        }
     };
 }
 

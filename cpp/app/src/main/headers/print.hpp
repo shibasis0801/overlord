@@ -1,8 +1,7 @@
 #ifndef PRINTER_HPP 
 #define PRINTER_HPP
 
-#include <iostream>
-#include <string>
+#include "base.hpp"
 
 using std::cout;
 using std::string;
