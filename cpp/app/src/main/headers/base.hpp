@@ -25,8 +25,9 @@
 #define r_all(container) container.rbegin(), container.rend()
 #define take(container, count) container.begin(), container.begin() + count
 
-// Custom Headers
+// Aliases
+template<class T>
+using Table = std::vector<std::vector<T>>;
 
-// Custom Implementations
 
 #endif

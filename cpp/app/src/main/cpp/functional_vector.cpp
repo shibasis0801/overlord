@@ -18,15 +18,8 @@
 // Use macros and as much as C++ infrastructure as required. 
 // End result must be simple, fast and configurable.
 
-#include <vector>
-#include <iostream>
-#include <functional>
-#include <type_traits>
-#include <numeric>
-#include <initializer_list>
-
-#include "../../../../lib/include/print.hpp"
-#include "../include/macro.hpp"
+#include "base.hpp"
+#include "print.hpp"
 
 using namespace std;
 
@@ -37,9 +30,9 @@ struct functional_vector {
 
     vector<value_type> data;
 
-    functional_vector() {}
+    functional_vector() = default;
 
-    functional_vector(vector<value_type> data) : data(data) 
+    explicit functional_vector(vector<value_type> data) : data(data)
     {}
 
     functional_vector(initializer_list<value_type> input) {
@@ -136,7 +129,7 @@ int main() {
             .mapInPlace([](int i) {return i*i;})
             .filter([](int i) -> bool { return i % 2 == 0; })
             .mapInPlace([](int i) {return i*2;})
-            .mapIndexed([=](int idx, int item) -> pair<int, int> { return pair(idx, item); })
+            .mapIndexed([=](int idx, int item) -> pair<int, int> { return make_pair(idx, item); })
             // .forEachChainable([=](pair<int, int> p) {
             //     auto [idx, item] = p;
             //     ovd::println("Idx :", idx, "has Value :", item);
