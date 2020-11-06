@@ -2,6 +2,27 @@ package com.overlord.annotations
 
 import java.util.concurrent.CompletableFuture
 
+/*
+then ->
+thenApply
+thenCombine
+thenCompose
+thenAccept
+
+catch ->
+exceptionally
+
+resolve ->
+complete
+reject ->
+completeExceptionally
+
+all ->
+allOf
+
+resolve/reject
+supplyAsync -> complete/completeExceptionally
+ */
 actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) -> Unit, reject: (Throwable) -> Unit) -> Unit) {
     // Must be exposed, must have secondary constructor to build a CP from a future
     val future = CompletableFuture<T>()
