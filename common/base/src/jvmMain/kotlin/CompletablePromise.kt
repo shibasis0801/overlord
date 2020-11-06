@@ -27,12 +27,22 @@ actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) ->
     // Must be exposed, must have secondary constructor to build a CP from a future
     val future = CompletableFuture<T>()
 
+
+    init {
+        CompletableFuture.supplyAsync {
+            executor(future::complete, future::completeExceptionally)
+        }
+    }
+
     actual fun <R> then(onFulfilled: ((T) -> R)?): CompletablePromise<R> {
-        TODO("Not yet implemented")
+        future.thenCompose(onFulfilled)
     }
 
     actual fun <R> catch(onRejected: (Throwable) -> R): CompletablePromise<R> {
-        TODO("Not yet implemented")
+        future.exceptionally {
+            onRejected(it)
+            future.get()
+        }
     }
 
     actual companion object {
@@ -45,5 +55,6 @@ actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) ->
         }
     }
 }
+
 
 //Compiler Plugins, not exactly related but look into them for more power than reflection
