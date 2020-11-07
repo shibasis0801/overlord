@@ -8,7 +8,6 @@ import java.util.concurrent.CompletableFuture
 fun getFrom(remoteConfig: FirebaseRemoteConfig, keys: Set<String>)
         = keys.associateWith { remoteConfig.getString(it) }
 
-// Decrease API version after thinking. CompletableFuture requires Android >= 7
 fun remoteConfig(defaultValues: Map<String, Any>): CompletableFuture<Map<String, String>> {
     val future = CompletableFuture<Map<String, String>>()
 

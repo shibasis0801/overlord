@@ -35,11 +35,8 @@ vector<float> marshall(JNIEnv* env, jfloatArray array) {
 }
 
 
-#define JAVA_CLASS = Java_com_phoenixoverlord_pravega_ml_Transform
-#define jniFunction(name) "##JAVA_CLASS##name"
-
 jni(float)
-jniFunction(arraySum)(
+Java_com_phoenixoverlord_pravega_ml_Transform_arraySum(
         JNIEnv *env,
         jobject thiz,
         jfloatArray values) {
