@@ -8,23 +8,13 @@ using std::endl;
 using std::vector;
 using std::thread;
 using std::min;
-
-
-llong calculateSum(
-        const vector<int> &numbers,
-        size_t start, size_t end
-) {
-    llong sum = 0;
-    traverse(i, start, end) {
-        sum += numbers[i] * numbers[i];
-    }
-    return sum;
-}
+using std::accumulate;
 
 llong calculateThreadedSum(
         const vector<int> &numbers
 ) {
-    auto n_proc = thread::hardware_concurrency() - 1;
+//    auto n_proc = thread::hardware_concurrency() - 1;
+    auto n_proc = 1;
     auto size = numbers.size();
 
     int chunk_size = (int)(size / n_proc) + 1;
@@ -37,7 +27,7 @@ llong calculateThreadedSum(
         auto start = i * chunk_size;
         auto end = min(start + chunk_size, size);
         processors[i] = thread([&, i, start, end](llong &acc) {
-           acc = calculateSum(numbers, start, end);
+           acc = accumulate(numbers.begin() + start,numbers.begin() + end, 0);
         }, std::ref(sums[i]));
     }
 

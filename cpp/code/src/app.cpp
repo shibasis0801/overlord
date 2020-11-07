@@ -20,7 +20,7 @@ int main () {
     auto elements = utils::createVector(1, 10000);
 
     auto startNormal = high_resolution_clock::now();
-    auto sumNormal = calculateSum(elements, 0, elements.size());
+    auto sumNormal = accumulate(all(elements), 0);
     auto timeNormal = getEnd(startNormal);
 
     auto startThreaded = high_resolution_clock::now();
