@@ -4,6 +4,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileOptions {
@@ -58,7 +59,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -74,9 +75,11 @@ dependencies {
     api firebase
     api external
     api mlkit
+    api dagger
 
     kapt networkingKapt
     kapt roomKapt
+    kapt daggerKapt
     
 
     // Imaging

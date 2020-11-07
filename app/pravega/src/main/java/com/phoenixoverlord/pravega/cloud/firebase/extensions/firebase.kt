@@ -10,6 +10,10 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import com.phoenixoverlord.pravega.extensions.logError
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 import java.io.File
 import java.lang.Error
 
@@ -31,6 +35,28 @@ public object Firebase {
     val auth : FirebaseAuth
         get() = FirebaseAuth.getInstance()
 }
+
+// This should replace the above slowly
+@Module
+@InstallIn(ActivityComponent::class)
+object FirebaseDagger {
+    @Provides
+    fun provideRealtime(): DatabaseReference
+            = FirebaseDatabase.getInstance().reference
+
+    @Provides
+    fun provideAuth(): FirebaseAuth
+            = FirebaseAuth.getInstance()
+
+    @Provides
+    fun provideStorage(): StorageReference
+            = FirebaseStorage.getInstance().reference
+
+    @Provides
+    fun provideFirestore(): FirebaseFirestore
+            = FirebaseFirestore.getInstance()
+}
+
 
 
 
