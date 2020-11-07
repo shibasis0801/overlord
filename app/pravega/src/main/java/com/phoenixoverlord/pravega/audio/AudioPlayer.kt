@@ -1,12 +1,9 @@
-package com.phoenixoverlord.pravegaapp.mechanisms
+package com.phoenixoverlord.pravega.audio
 
 import android.media.MediaPlayer
-import android.media.MediaRecorder
 import android.util.Log
-import com.phoenixoverlord.pravega.framework.BaseActivity
 import java.io.File
 import java.io.IOException
-import java.util.*
 
 object AudioPlayer {
     private var mediaPlayer: MediaPlayer? = null

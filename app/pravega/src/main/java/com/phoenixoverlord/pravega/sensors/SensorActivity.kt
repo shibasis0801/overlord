@@ -1,4 +1,4 @@
-package com.phoenixoverlord.pravegaapp
+package com.phoenixoverlord.pravega.sensors
 
 import android.content.Context
 import android.hardware.Sensor

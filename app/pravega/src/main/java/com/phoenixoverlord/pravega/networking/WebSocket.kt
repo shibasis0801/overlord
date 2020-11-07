@@ -1,4 +1,4 @@
-package com.phoenixoverlord.pravegaapp.mechanisms
+package com.phoenixoverlord.pravega.networking
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.phoenixoverlord.pravegaapp.mechanisms
+package com.phoenixoverlord.pravega.audio
 
 import android.media.MediaRecorder
 import android.util.Log

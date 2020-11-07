@@ -1,4 +1,4 @@
-package com.phoenixoverlord.pravegaapp.mechanisms
+package com.phoenixoverlord.pravega.audio
 
 import android.speech.tts.TextToSpeech
 import com.phoenixoverlord.pravega.extensions.logDebug
