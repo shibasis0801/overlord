@@ -1,0 +1,103 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'org.jetbrains.dokka'
+
+android {
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField 'String', 'IP_LOCAL_SERVER', "\"${InetAddress.localHost.hostAddress}\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++17"
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        dev {
+//            buildConfigField "String", "DEV_IP", "192.168.0.70"
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    ndkVersion '20.0.5594570'
+}
+
+
+// Why is app module this not taking transitive dependencies?
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+
+    api compose
+    api networking
+    api coroutines
+    api lifecycle
+    api extension
+    api room
+    api camera
+    api firebase
+    api external
+    api mlkit
+
+    kapt networkingKapt
+    kapt roomKapt
+    
+
+    // Imaging
+    api('com.github.jkwiecien:EasyImage:3.0.3') {
+        transitive = true
+    }
+    api('com.github.chrisbanes:PhotoView:2.3.0') {
+        transitive = true
+    }
+    api('com.github.bumptech.glide:glide:4.9.0') {
+        transitive = true
+    }
+    kapt('com.github.bumptech.glide:compiler:4.9.0') {
+        transitive = true
+    }
+
+
+    // ToDo Remove dependency
+    // Hack: https://stackoverflow.com/questions/56639529/duplicate-class-com-google-common-util-concurrent-listenablefuture-found-in-modu
+//    implementation 'com.google.guava:guava:27.0.1-android'
+}
+
+repositories {
+    mavenCentral()
+}
