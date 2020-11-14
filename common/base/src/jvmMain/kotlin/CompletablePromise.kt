@@ -23,25 +23,33 @@ allOf
 resolve/reject
 supplyAsync -> complete/completeExceptionally
  */
-actual class CompletablePromise<T> actual constructor(executor: (resolve: (T) -> Unit, reject: (Throwable) -> Unit) -> Unit) {
+actual class CompletablePromise<T>  {
+
     // Must be exposed, must have secondary constructor to build a CP from a future
-    val future = CompletableFuture<T>()
+    var future = CompletableFuture<T>()
+    private set
 
 
-    init {
-        CompletableFuture.supplyAsync {
-            executor(future::complete, future::completeExceptionally)
-        }
+    actual constructor(executor: (resolve: (T) -> Unit, reject: (Throwable) -> Unit) -> Unit) {
+        executor({
+            future = CompletableFuture.supplyAsync { it }
+        }, {
+            future = CompletableFuture.supplyAsync { throw it }
+        })
+    }
+
+    constructor(future: CompletableFuture<T>) {
+        this.future = future
     }
 
     actual fun <R> then(onFulfilled: ((T) -> R)?): CompletablePromise<R> {
-        future.thenCompose(onFulfilled)
+        return CompletablePromise(future.thenApply(onFulfilled))
     }
 
     actual fun <R> catch(onRejected: (Throwable) -> R): CompletablePromise<R> {
-        future.exceptionally {
+         future.exceptionally {
             onRejected(it)
-            future.get()
+
         }
     }
 
