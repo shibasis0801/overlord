@@ -2,7 +2,9 @@ package org.overlord.server.config
 
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration
 import io.r2dbc.postgresql.PostgresqlConnectionFactory
+import io.r2dbc.spi.ConnectionFactories
 import io.r2dbc.spi.ConnectionFactory
+import io.r2dbc.spi.ConnectionFactoryOptions
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration
@@ -13,13 +15,6 @@ import org.springframework.data.r2dbc.core.DatabaseClient
 // Also get from environment variables.
 @Configuration
 class DataSourceConfiguration: AbstractR2dbcConfiguration() {
-    fun getEnv(value: String, defaultValue: String): String {
-        val res = System.getenv(value);
-        if (res != null)
-            return res;
-        else
-            return defaultValue
-    }
 
 //    If r2dbc does not work on Heroku, will have to fallback as in pravega to jdbc
     fun credential(type: String): String {
@@ -31,9 +26,7 @@ class DataSourceConfiguration: AbstractR2dbcConfiguration() {
         }
     }
 
-    @Bean
-    override fun connectionFactory(): ConnectionFactory {
-        return PostgresqlConnectionFactory(
+    fun getLocalConnection() = PostgresqlConnectionFactory(
                 PostgresqlConnectionConfiguration.builder()
                         .host("localhost")
                         .database("dev")
@@ -41,5 +34,21 @@ class DataSourceConfiguration: AbstractR2dbcConfiguration() {
                         .password(credential("password"))
                         .build()
         )
+
+
+    fun getHerokuConnection() = ConnectionFactories.get(
+            ConnectionFactoryOptions.parse(credential("url"))
+                    .mutate()
+                    .option(ConnectionFactoryOptions.USER, credential("username"))
+                    .option(ConnectionFactoryOptions.PASSWORD, credential("password"))
+                    .option(ConnectionFactoryOptions.PROTOCOL, "r2dbc")
+                    .build()
+    )
+
+    @Bean
+    override fun connectionFactory(): ConnectionFactory {
+        return if (credential("url").contains("localhost"))
+            getLocalConnection() else
+            getHerokuConnection()
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
 import org.springframework.core.io.Resource
 import java.io.FileInputStream
+import java.io.InputStream
 
 
 @Configuration
@@ -17,12 +18,19 @@ class FirebaseConfiguration {
     @Value("classpath:firebase.json")
     lateinit var resourceFile: Resource
 
+    fun credentialStream(): InputStream {
+        val config = getEnv("FIREBASE_CONFIG", "")
+        return if (config.isNotEmpty())
+            config.byteInputStream() else
+            FileInputStream(resourceFile.file)
+    }
+
     @Primary
     @Bean
     fun firebaseAdmin() {
-        val serviceAccount = FileInputStream(resourceFile.file)
+        val credentials = GoogleCredentials.fromStream(credentialStream())
         val options = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                .setCredentials(credentials)
                 .setDatabaseUrl("https://pravegaherokufirebase.firebaseio.com")
                 .build()
 

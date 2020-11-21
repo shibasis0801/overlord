@@ -47,10 +47,11 @@ actual class CompletablePromise<T>  {
     }
 
     actual fun <R> catch(onRejected: (Throwable) -> R): CompletablePromise<R> {
-         future.exceptionally {
-            onRejected(it)
-
-        }
+        return CompletablePromise(
+                CompletableFuture.supplyAsync {
+                    onRejected(Error("Implement catch in CompletablePromise, JVM"))
+                }
+        )
     }
 
     actual companion object {

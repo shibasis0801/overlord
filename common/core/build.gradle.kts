@@ -1,7 +1,7 @@
 plugins {
     kotlin("multiplatform") version "1.4.10"
     kotlin("kapt") version "1.4.10"
-    "maven-publish"
+    id("maven-publish")
 }
 group = "org.overlord"
 version = "1.0-SNAPSHOT"

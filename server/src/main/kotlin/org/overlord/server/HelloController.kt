@@ -26,4 +26,10 @@ class HelloController {
             .`as`(Friend::class.java)
             .fetch()
             .all()
+
+    @GetMapping("/")
+    fun helloWorld() = mapOf(
+            "name" to "Shibasis Patnaik",
+            "purpose" to "Personal Server"
+    )
 }
