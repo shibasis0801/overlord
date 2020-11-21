@@ -19,7 +19,7 @@ class DataSourceConfiguration: AbstractR2dbcConfiguration() {
 //    If r2dbc does not work on Heroku, will have to fallback as in pravega to jdbc
     fun credential(type: String): String {
         return when(type) {
-            "url" -> getEnv("JDBC_DATABASE_URL", "r2dbc:postgresql://localhost:5432/dev")
+            "url" -> "r2dbc:${getEnv("DATABASE_URL", "postgresql://localhost:5432/dev")}"
             "username" -> getEnv("JDBC_DATABASE_USERNAME", "postgres")
             "password" -> getEnv("JDBC_DATABASE_PASSWORD", "postgres")
             else -> "ERROR_TYPE"
