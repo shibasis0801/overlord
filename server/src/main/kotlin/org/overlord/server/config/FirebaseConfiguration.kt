@@ -3,6 +3,7 @@ package org.overlord.server.config
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
@@ -27,7 +28,7 @@ class FirebaseConfiguration {
 
     @Primary
     @Bean
-    fun firebaseAdmin() {
+    fun firebaseAdmin(): FirebaseApp {
         val credentials = GoogleCredentials.fromStream(credentialStream())
         val options = FirebaseOptions.builder()
                 .setCredentials(credentials)
@@ -35,17 +36,17 @@ class FirebaseConfiguration {
                 .build()
 
 
-        FirebaseApp.initializeApp(options)
-        val ref = FirebaseDatabase.getInstance().reference
-        ref.child("spring")
-                .setValueAsync(mapOf(
-                        Pair("name", "shibasis"),
-                        Pair("skills", mapOf(
-                                Pair("dev", "Kotlin/JS"),
-                                Pair("ai", "python/math")
-                        )
-                        )
-                ))
+        return FirebaseApp.initializeApp(options)
     }
 
+    @Bean
+    fun getFirebaseDatabase(app: FirebaseApp) = FirebaseDatabase.getInstance()
+
+    @Bean
+    fun getDatabaseReference(app: FirebaseApp, database: FirebaseDatabase) = database.reference
+
+    @Bean
+    fun getFirebaseAuth(app: FirebaseApp) = FirebaseAuth.getInstance()
+
+//    Use redis to create message queue between this and the AI server
 }
