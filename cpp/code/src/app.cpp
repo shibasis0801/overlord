@@ -8,6 +8,7 @@
 #include <chrono>
 #include "print.hpp"
 #include "matrix.hpp"
+#include "linear_algebra/elementary.hpp"
 
 using namespace ovd;
 using namespace std;
@@ -37,6 +38,22 @@ void printColumns() {
         }
         print("\n");
     }
+
+    Matrix<int> secondMatrix = {
+            {1, 2, 3},
+            {2, 4, 6},
+            {3, 6, 9}
+    };
+    repeat(i, 3) {
+        repeat(j, 3) {
+            print(secondMatrix[i][j]);
+        }
+        print("\n");
+    }
+    auto row = secondMatrix[0];
+    auto column = ColumnView(secondMatrix, 0);
+    print(dotProduct(row, column), "\n");
+    print(dotProduct(column, row), "\n");
 }
 
 

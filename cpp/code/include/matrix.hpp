@@ -28,7 +28,6 @@ namespace ovd {
         return std::move(matrix);
     }
 
-
     // For a given rectangular matrix, return the column view of a column of that matrix as an array like object.
     template<class T>
     struct ColumnView {

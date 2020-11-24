@@ -11,4 +11,4 @@ include_directories(code/src/hackerrank)
 include_directories(code/src/math)
 
 add_executable(cpp
-        code/src/app.cpp code/include/matrix.hpp code/include/matrix_view.hpp)
+        code/src/app.cpp code/include/matrix.hpp code/include/linear_algebra/elementary.hpp)
