@@ -7,6 +7,7 @@
 #include "vector_utils.hpp"
 #include <chrono>
 #include "print.hpp"
+#include "matrix.hpp"
 
 using namespace ovd;
 using namespace std;
@@ -15,6 +16,29 @@ using namespace std::chrono;
 inline decltype(auto) getEnd(time_point<steady_clock> start) {
     return duration_cast<nanoseconds>(high_resolution_clock::now() - start).count();
 }
+
+
+void printColumns() {
+    auto matrix = createMatrix<int>(3, 3, [&] (size_t row, size_t col) -> int {
+        return (3 * row) + col + 1;
+    });
+    // Write 2d range iterator to convert this into one loop
+    repeat(i, 3) {
+        repeat(j, 3) {
+            print(matrix[i][j]);
+        }
+        print("\n");
+    }
+
+    repeat(i, 3) {
+        auto column = ColumnView(matrix, i);
+        repeat(j, 3) {
+            print(column[j], "\n");
+        }
+        print("\n");
+    }
+}
+
 
 int main () {
     auto elements = utils::createVector(1, 10000);
@@ -29,5 +53,7 @@ int main () {
 
     print("sumNormal: ", sumNormal, ", time: ", timeNormal, '\n');
     print("sumThreaded: ", sumThreaded, ", time: ", timeThreaded, '\n');
+
+    printColumns();
     return 0;
 }

@@ -28,10 +28,6 @@
 #define take(container, count) container.begin(), container.begin() + count
 
 // Aliases
-template<class T>
-using Table = std::vector<std::vector<T>>;
-
-
 typedef long long llong;
 
 #endif

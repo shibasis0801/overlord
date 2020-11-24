@@ -1,6 +1,7 @@
 #ifndef RANGE_HPP
 #define RANGE_HPP
 
+// Todo: Create 2D range iterator for (auto i : range2D(range(0, 6), range(0, 4)) -> { (0, 0) ... (5, 0) .... (0, 2) ... (5, 3) } (Cartesian product)
 // Compile Time Duck Typing
 namespace ovd {
     struct range {
