@@ -1,3 +1,5 @@
 include ':app', ':pravega'
 rootProject.name = "OverlordAndroid"
 
+include ':chat'
+include ':photos'

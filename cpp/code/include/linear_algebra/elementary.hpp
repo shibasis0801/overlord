@@ -5,7 +5,7 @@
 
 namespace ovd {
     template<class T>
-    T dotProduct(const vector<T> &row, const ColumnView <T> &column) {
+    T arrayProduct(const vector<T> &row, const ColumnView <T> &column) {
         auto rsize = row.size(), csize = column.size(), size = rsize;
         T product = 0;
 
@@ -21,8 +21,8 @@ namespace ovd {
     }
 
     template<class T>
-    T dotProduct(const ColumnView <T> &column, const vector<T> &row) {
-        return dotProduct(row, column);
+    T arrayProduct(const ColumnView <T> &column, const vector<T> &row) {
+        return arrayProduct(row, column);
     }
 }
 

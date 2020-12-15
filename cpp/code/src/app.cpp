@@ -52,8 +52,8 @@ void printColumns() {
     }
     auto row = secondMatrix[0];
     auto column = ColumnView(secondMatrix, 0);
-    print(dotProduct(row, column), "\n");
-    print(dotProduct(column, row), "\n");
+    print(arrayProduct(row, column), "\n");
+    print(arrayProduct(column, row), "\n");
 }
 
 

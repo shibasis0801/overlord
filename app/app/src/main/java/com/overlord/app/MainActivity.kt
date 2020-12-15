@@ -13,7 +13,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
-    @Inject lateinit var firebase: DatabaseReference
+    @Inject
+    lateinit var firebase: DatabaseReference
 
     private val mainViewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
