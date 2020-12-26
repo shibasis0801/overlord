@@ -8,7 +8,8 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.tooling.preview.Preview
-import com.overlord.app.ui.OverlordAndroidTheme
+import com.overlord.app.main.MainActivity
+import com.overlord.app.theme.OverlordAndroidTheme
 import com.phoenixoverlord.pravegaapp.auth.authenticateAnonymously
 import com.phoenixoverlord.pravegaapp.framework.extensions.finishAndStart
 import com.phoenixoverlord.pravegaapp.toast

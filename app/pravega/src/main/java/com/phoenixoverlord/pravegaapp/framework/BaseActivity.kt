@@ -7,6 +7,17 @@ import com.phoenixoverlord.pravegaapp.mechanisms.NotificationModule
 import com.phoenixoverlord.pravegaapp.mechanisms.PermissionsModule
 import com.phoenixoverlord.pravegaapp.utils.LoopingAtomicInteger
 
+
+/**
+ * Good ideas. Needs extensive rewrite.
+ * Things to add
+ *
+ * New ActivityResult / Permission APIs
+ * New Camera APIs
+ * KotlinFlow
+ *
+ */
+
 abstract class BaseActivity : AppCompatActivity() {
     private val loopingAtomicInteger = LoopingAtomicInteger(100, 10000)
     private val activityResultHandler = ActivityResultHandler()
