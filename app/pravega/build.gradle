@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'dagger.hilt.android.plugin'
 
@@ -56,14 +55,13 @@ android {
 // Why is app module this not taking transitive dependencies?
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
-
+    api basic
     api compose
     api networking
     api coroutines
@@ -71,6 +69,7 @@ dependencies {
     api extension
     api room
     api camera
+    api navigation
     api firebase
     api external
     api mlkit
@@ -80,6 +79,10 @@ dependencies {
     kapt roomKapt
     kapt daggerKapt
     
+
+    testImplementation testing
+    androidTestImplementation androidTesting
+
 
     // Imaging
     api('com.github.jkwiecien:EasyImage:3.0.3') {
