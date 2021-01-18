@@ -30,6 +30,7 @@
   },
   "jest": {
     "preset": "react-native",
+    "testPathIgnorePatterns": ["web"],
     "moduleFileExtensions": [
       "ts",
       "tsx",
