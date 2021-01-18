@@ -22,6 +22,12 @@ sealed class Route(
         // Chat, Social (Front-end and Back-end)
 
     }
+
+    object Math: Route("math", Icons.Filled.Calculate) {
+        // FFT implementation in C++, etc, etc.
+        // Basic Neural Network implementation in C++ from ground.
+    }
+
     object ML: Route("ml", Icons.Filled.Flight) {
         // MLKit and HerokuFastAPI
 

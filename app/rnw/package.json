@@ -1,8 +1,0 @@
-{
-    "name": "overlord-rnw",
-    "version": "0.0.1",
-    "scripts": {
-        "start": "yarn react-native start"
-    }
-
-}

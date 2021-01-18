@@ -7,6 +7,7 @@
 #include <thread>
 #include <bitset>
 #include <cmath>
+//https://towardsdatascience.com/gpu-accelerated-machine-learning-in-your-mobile-applications-using-the-android-ndk-vulkan-kompute-1e9da37b7617
 
 using std::thread;
 using std::vector;
@@ -81,6 +82,7 @@ int threadedArraySum(const vector<T> &values) {
     return std::accumulate(all(sums), 0, std::plus<T>());
 }
 
+// jni(int)
 extern "C" JNIEXPORT jint JNICALL
 Java_com_nixlord_myapplication_MainActivity_arraySumThreaded(
         JNIEnv* env,
