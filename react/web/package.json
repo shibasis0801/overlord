@@ -20,6 +20,16 @@
           "allExtensions": true
         }
       ]
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "alias": {
+            "^react-native$": "react-native-web"
+          }
+        }
+      ]
     ]
   },
   "keywords": [],
@@ -35,7 +45,8 @@
     "react-native-web": "^0.14.10",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "roboto-fontface": "^0.10.0"
+    "roboto-fontface": "^0.10.0",
+    "overlord": "file:../"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -45,11 +56,14 @@
     "@types/html-webpack-plugin": "^3.2.4",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-native": "^0.63.45",
     "@types/react-router-dom": "^5.1.7",
     "@types/webpack": "^4.41.26",
     "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.1",
+    "metro-react-native-babel-preset": "^0.64.0",
     "style-loader": "^2.0.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3",

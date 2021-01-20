@@ -7,11 +7,23 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"],
         alias: {
-
+            "react-native$": "react-native-web"
         }
     },
     module: {
         rules: [
+            {
+                test: /\.[jt]sx?/,
+                include: /node_modules\/overlord/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['module:metro-react-native-babel-preset'],
+                        plugins: [["@babel/plugin-proposal-decorators"], { legacy: true }]
+
+                    }
+                }
+            },
             {
                 test: /\.[jt]sx?/,
                 exclude: /node_modules/,

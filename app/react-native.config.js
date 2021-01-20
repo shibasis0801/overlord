@@ -12,7 +12,6 @@ module.exports = {
         },
     },
     root: "./",
-    reactNativePath: '.',
     project: {
         android: {
             sourceDir: './app',

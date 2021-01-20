@@ -38,7 +38,8 @@ buildscript {
         react_version = parsed_json["dependencies"]["react-native"]
 //        react_version=
         reactAndroid = [
-                "com.facebook.react:react-native:$react_version"
+                "com.facebook.react:react-native:+",
+                "org.webkit:android-jsc:+"
         ]
 
         retrofit_version = "2.9.0"
@@ -162,13 +163,13 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url "$rootDir/node_modules/react-native/android" }
+        maven { url("$rootDir/node_modules/jsc-android/dist") }
         google()
         jcenter()
         mavenCentral()
         maven { url 'https://jitpack.io' }
         maven { url "https://clojars.org/repo/" }
-        maven { url "$rootDir/node_modules/react-native/android" }
-        maven { url("$rootDir/node_modules/jsc-android/dist") }
     }
 }
 

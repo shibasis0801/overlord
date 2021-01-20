@@ -18,15 +18,22 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-declare const global: {HermesInternal: null | {}};
+const Colors = {
+  primary100: "#B2DFDB",
+  primary: "#009688",
+  primary700: "#00796B",
+  primary800: "#00695C",
+  base: "white",
+  offBase: "whitesmoke",
+  accentColor: "#607D8B",
+  textPrimary: "#212121",
+  textSecondary: "#757575",
+  separator: "#BDBDBD",
+  shadow: "rgba(0, 0, 0, 0.14)"
+}
+
+// declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   return (
@@ -36,12 +43,12 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
+
+          {/*{global.HermesInternal == null ? null : (*/}
+          {/*  <View style={styles.engine}>*/}
+          {/*    <Text style={styles.footer}>Engine: Hermes</Text>*/}
+          {/*  </View>*/}
+          {/*)}*/}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
@@ -52,15 +59,11 @@ const App = () => {
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
+              <Text style={styles.sectionDescription}>Hello world!</Text>
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
+              <Text style={styles.sectionDescription}>Hello world!</Text>
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Learn More</Text>
@@ -68,7 +71,6 @@ const App = () => {
                 Read the docs to discover what to do next:
               </Text>
             </View>
-            <LearnMoreLinks />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -78,14 +80,14 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: Colors.offBase,
   },
   engine: {
     position: 'absolute',
     right: 0,
   },
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.base,
   },
   sectionContainer: {
     marginTop: 32,
@@ -94,19 +96,19 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
-    color: Colors.black,
+    color: Colors.textPrimary,
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: Colors.dark,
+    color: Colors.primary800,
   },
   highlight: {
     fontWeight: '700',
   },
   footer: {
-    color: Colors.dark,
+    color: Colors.primary800,
     fontSize: 12,
     fontWeight: '600',
     padding: 4,
@@ -114,5 +116,6 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+
 
 export default App;

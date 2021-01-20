@@ -5,9 +5,13 @@ import {
 
 import Home from "../components/Home/Home";
 import React from "react";
+import App from "overlord/App";
 
 const Routes = () => (
     <Switch>
+        <Route path="/rnw">
+            <App />
+        </Route>
         <Route path="/users">
             <Home prompt="Hello" defaultName="Patnaik" />
         </Route>
