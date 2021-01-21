@@ -10,13 +10,14 @@ import androidx.navigation.NavController
 import com.overlord.app.main.MainActivity
 import com.overlord.app.react.ReactActivity
 import com.phoenixoverlord.pravegaapp.framework.extensions.finishAndStart
+import com.phoenixoverlord.pravegaapp.framework.extensions.startOther
 
 @Preview
 @Composable
 fun AboutScreen(navController: NavController) {
     val activity = AmbientContext.current as MainActivity
     Column {
-        Button(onClick = { activity.finishAndStart(ReactActivity::class.java) }) {
+        Button(onClick = { activity.startOther(ReactActivity::class.java, true) }) {
             Text("Move to React Native")
         }
     }

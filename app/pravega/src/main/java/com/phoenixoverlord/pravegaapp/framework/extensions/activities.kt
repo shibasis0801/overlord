@@ -2,6 +2,7 @@
 package com.phoenixoverlord.pravegaapp.framework.extensions
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NO_ANIMATION
 import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,13 @@ fun AppCompatActivity.toastSuccess(message : String) {
 
 fun AppCompatActivity.toastError(message : String) {
     Toasty.error(this, message, Toast.LENGTH_SHORT, true).show()
+}
+
+fun AppCompatActivity.startOther(activity: Class<*>, disableAnimation: Boolean = false) {
+    startActivity(Intent(this, activity).apply {
+        if (disableAnimation)
+            addFlags(FLAG_ACTIVITY_NO_ANIMATION)
+    })
 }
 
 fun AppCompatActivity.finishAndStart(activity : Class<*>) {
