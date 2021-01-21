@@ -13,7 +13,7 @@ fun MainScreen() {
     val routes = Route.getRoutes()
     val navController = rememberNavController()
 
-    OverlordAndroidTheme {
+    OverlordAndroidTheme(darkTheme = false) {
         Scaffold(
             topBar = {},
             bottomBar = { BottomBar(navController, routes) }

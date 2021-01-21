@@ -8,7 +8,7 @@ import dagger.hilt.android.HiltAndroidApp
 class OverlordLabApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        SoLoader.init(this,  false)
+//        SoLoader.init(this,  false)
     }
 }
 

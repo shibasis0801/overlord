@@ -3,7 +3,19 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
-//import com.android.build.OutputFile
+import groovy.json.JsonSlurper
+
+// Convert to kotlin
+def getPackageJSON() {
+    return new JsonSlurper().parseText(
+            new File("$rootDir/package.json").text
+    )
+}
+
+def getApplicationName() {
+   def data = getPackageJSON()
+    return data["name"]
+}
 
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
@@ -80,6 +92,7 @@ apply plugin: 'dagger.hilt.android.plugin'
  * ]
  */
 
+// Enable Hermes and bump version after learning more.
 project.ext.react = [
         enableHermes: false,  // clean and rebuild if changing
         root: "../",
@@ -120,6 +133,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField 'String', 'IP_LOCAL_SERVER', "\"${InetAddress.localHost.hostAddress}\""
+        buildConfigField 'String', 'REACT_NAME', "\"${getApplicationName()}\""
     }
 
     buildFeatures {
@@ -203,4 +217,5 @@ dependencies {
 //    }
 }
 
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle");
+applyNativeModulesAppBuildGradle(project)
