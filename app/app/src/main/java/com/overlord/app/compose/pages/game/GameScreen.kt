@@ -1,7 +1,6 @@
-package com.overlord.app.pages.game
+package com.overlord.app.compose.pages.game
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.text.BasicText
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

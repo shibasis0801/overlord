@@ -14,7 +14,7 @@ import com.phoenixoverlord.pravegaapp.auth.authenticateAnonymously
 import com.phoenixoverlord.pravegaapp.framework.extensions.finishAndStart
 import com.phoenixoverlord.pravegaapp.toast
 
-class SplashActivity : AppCompatActivity() {
+class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

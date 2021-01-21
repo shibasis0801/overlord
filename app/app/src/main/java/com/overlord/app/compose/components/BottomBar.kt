@@ -1,6 +1,5 @@
-package com.overlord.app.main.components
+package com.overlord.app.compose.components
 
-import androidx.compose.foundation.text.BasicText
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon

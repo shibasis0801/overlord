@@ -8,6 +8,7 @@ import {
 import packageJson from "./package.json";
 
 const isHermes = () => !!global.HermesInternal;
+
 class HelloWorld extends React.Component {
   render() {
     return (
