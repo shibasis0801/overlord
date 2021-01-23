@@ -1,20 +1,21 @@
-div.lab {
+section.lab {
     display: flex;
     height: 100%;
+    width: 100%;
     /* border-radius: 16px; */
 }
 
-div.lab > aside {
+section.lab > aside {
     width: 30%;
+    max-width: 440px;
     background-color: var(--base);
     color: var(--on-base);
     padding: 16px;
 }
 
-div.lab > main {
-    width: 70%;
+section.lab > main {
+    width: 100%;
     background-color: var(--base-light);
     color: var(--on-base);
     padding: 16px;
 }
-

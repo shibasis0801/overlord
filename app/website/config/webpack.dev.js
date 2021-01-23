@@ -1,8 +1,6 @@
 const baseWebpack = require("./webpack.base");
 const path = require("path");
 
-const index = path.resolve(__dirname, "../public/index.html")
-
 module.exports = {
     mode: "development",
     devServer: {
@@ -12,13 +10,7 @@ module.exports = {
         hot: true,
         publicPath: "/",
         historyApiFallback: true
-        // historyApiFallback: {
-        //     index
-        // }
     },
-    // output: {
-    //     publicPath: index
-    // },
     devtool: "inline-source-map",
 
     entry: baseWebpack.entry,
