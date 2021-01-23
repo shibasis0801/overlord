@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+// Use ReactNativePaper if needed
+// https://callstack.github.io/react-native-paper/getting-started.html
 const commonReact = path.resolve(__dirname, "../../react")
 const webReact = path.resolve(__dirname, "../src")
 
@@ -35,13 +36,12 @@ module.exports = {
                 }
             },
             {
-                test: /\.(gif|jpe?g|png|svg)$/,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        name: '[name].[ext]'
-                    }
-                }
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
             },
             {
                 test: /\.css$/,
