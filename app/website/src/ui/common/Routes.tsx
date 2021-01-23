@@ -6,14 +6,27 @@ import {
 import Home from "../components/Home/Home";
 import React from "react";
 import { App } from "../../../../react/App";
+import {LinkProps} from "./subcomponents/WrappedLink";
+import Lab from "../components/Lab/Lab";
+
+export const RouteUIConfig: LinkProps[] = [
+    { link: "/", text: "Home" },
+    { link: "/work", text: "Work" },
+    { link: "/lab", text: "Lab"},
+    { link: "/about", text: "About" },
+    { link: "https://shibasis0801.github.io/devlog/", text: "DevLog" }
+]
 
 const Routes = () => (
     <Switch>
-        <Route path="/rnw">
-            <App />
-        </Route>
-        <Route path="/users">
+        <Route path="/work">
             <Home prompt="Hello" defaultName="Patnaik" />
+        </Route>
+        <Route path="/lab">
+            <Lab />
+        </Route>
+        <Route path="/about">
+            <App />
         </Route>
         <Route path="/">
             <Home prompt="I am " defaultName="Shibasis" />

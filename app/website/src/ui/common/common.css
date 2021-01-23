@@ -1,0 +1,101 @@
+body {
+    font-family: "Roboto", sans-serif;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font-h1: 36px;
+    --font-h2: 30px;
+    --font-h3: 24px;
+    --font-p: 20px;
+    --font-button: 20px;
+}
+
+:root {
+    --russian-violet: #520050;
+    --dark-purple: #3c273fff;
+    --amaranth-pink: #ec98beff;
+    --antique-white: #ffeedbff;
+    --air-superiority-blue: #72a3c0ff;
+    --cerulean-frost: #6d98baff;
+}
+
+.light-theme {
+    --primary-light: #009688;
+    --primary: #00796B;
+    --primary-dark: #00695C;
+    --on-primary-light: whitesmoke;
+    --on-primary: white;
+    --base-dark: white;
+    --base: whitesmoke;
+    --base-light: #ccc;
+    --accent-color: var(--air-superiority-blue);
+    --on-base: #212121;
+    --on-base-dark: #757575;
+    --separator: #BDBDBD;
+    --shadow: rgba(0, 0, 0, 0.14);
+}
+
+.dark-theme {
+    --primary-light: var(--russian-violet);
+    --primary: var(--russian-violet);
+    --primary-dark: var(--dark-purple);
+    --on-primary-light: whitesmoke;
+    --on-primary: white;
+    --base-dark: #212121;
+    --base: #282828;
+    --base-light: #404040;
+    --on-base: white;
+    --on-base-dark: whitesmoke;
+    --accent-color: var(--amaranth-pink);
+    --separator: #BDBDBD;
+    --shadow: rgba(192, 192, 192, 0.14);
+}
+
+h1 {
+    font-size: var(--font-h1);
+}
+
+h2 {
+    font-size: var(--font-h2);
+}
+
+h3 {
+    font-size: var(--font-h3);
+}
+
+p {
+    font-size: var(--font-p);
+}
+
+button {
+    font-size: var(--font-button);
+}
+
+
+.card {
+    width: 100%;
+    padding: 12px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px 1px var(--shadow);
+    text-align: center;
+}
+
+
+
+/* minimal CSS Reset -> https://css-tricks.com/reboot-resets-reasoning/ */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+input:focus {
+    outline: 0;
+}
+button:focus {
+    outline: 0;
+}

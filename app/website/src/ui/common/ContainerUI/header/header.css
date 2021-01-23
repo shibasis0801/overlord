@@ -1,0 +1,66 @@
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+#container > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*box-shadow: 0 0 4px 4px var(--shadow);*/
+    font-family: 'Roboto Slab', serif;
+    color: var(--on-base);
+    background-color: var(--primary);
+}
+
+header > h1 {
+    font-weight: 500;
+    color: var(--on-primary);
+    margin-left: 10%;
+}
+
+header > nav {
+    color: var(--on-primary-light);
+    margin-right: 10%;
+}
+
+header > nav > ul {
+    list-style-type: none;
+}
+
+header>nav li.nav-item {
+    display: inline-block;
+    font-size: var(--font-h3);
+    padding: 6px 12px;
+    cursor: pointer;
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius*/
+    border-radius: 50% 20% / 10% 40%;
+}
+
+li.nav-item:hover {
+    background-color: var(--primary-dark);
+}
+
+.main-search {
+    align-self: center;
+    box-shadow: 2px 4px 4px 2px var(--shadow);
+}
+
+.main-search input {
+    height: 32px;
+    width: 144px;
+    padding: 0 12px;
+}
+
+.main-search button {
+    height: 32px;
+    width: 32px;
+    background: var(--primary-light);
+    color: var(--base-dark);
+    cursor: pointer;
+}
+
+.main-search button:hover {
+    background-color: var(--primary-dark);
+}
+
+@media screen and (max-width: 480px) {
+    /* Mobile CSS */
+
+}

@@ -24,6 +24,8 @@ class ReactActivity : BaseActivity(), DefaultHardwareBackBtnHandler {
     fun setupRootView() {
 
     }
+
+    // Convert this to activity result APIs
     fun setupOverlay() {
         if (!Settings.canDrawOverlays(this)) {
             startActivityGetResult(
@@ -56,17 +58,10 @@ class ReactActivity : BaseActivity(), DefaultHardwareBackBtnHandler {
             .addPackages(packages)
             .setUseDeveloperSupport(BuildConfig.DEBUG)
             .setInitialLifecycleState(LifecycleState.RESUMED)
-            .build();
-        // The string here (e.g. "MyReactNativeApp") has to match
-        // the string in AppRegistry.registerComponent() in index.js
+            .build()
+
         mReactRootView!!.startReactApplication(mReactInstanceManager, BuildConfig.REACT_NAME, null);
         setContentView(mReactRootView)
-//        setupReact()
-//        React.turnOnView(this)
-//        setContentView(React.rootView)
-//        setContent {
-//            MainScreen()
-//        }
     }
 
     override fun invokeDefaultOnBackPressed() {

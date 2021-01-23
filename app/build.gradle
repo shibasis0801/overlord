@@ -39,7 +39,9 @@ buildscript {
 //        react_version=
         reactAndroid = [
                 "com.facebook.react:react-native:+",
-                "org.webkit:android-jsc:+"
+                "org.webkit:android-jsc:+",
+                "androidx.browser:browser:1.3.0", // For PWA
+
         ]
 
         retrofit_version = "2.9.0"

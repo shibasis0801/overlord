@@ -1,23 +1,39 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import "./container.css"
+import Header from "./header/Header";
+import Main from "./main/Main";
 
-const ContainerUI = () => (
-    <nav>
-        <ul>
-            <li>
-                <Link to="/">Home</Link>
-            </li>
-            <li>
-                <Link to="/about">About</Link>
-            </li>
-            <li>
-                <Link to="/users">Users</Link>
-            </li>
-            <li>
-                <Link to="/rnw">RNW</Link>
-            </li>
-        </ul>
-    </nav>
-);
+type ContainerState = {
+}
 
-export default ContainerUI;
+function getTitle() {
+    const shibasis = "Shibasis Patnaik";
+    const overlord = "Overlord's Lab"
+    return window.location.pathname.startsWith("/lab") ? overlord : shibasis;
+}
+
+function getTheme() {
+    return window.location.pathname.startsWith("/lab") ? "dark-theme" : "light-theme";
+}
+
+export default class ContainerUI extends React.Component<{}, ContainerState> {
+
+    // Switch color scheme on clicking Lab
+    isMadScientistMode = () => {
+        // ToDo
+    }
+
+    render() {
+        const title = getTitle();
+        const theme = getTheme();
+        return (
+            <div id="container" className={theme}>
+                <Header title={title}/>
+                <Main>
+                    {this.props.children}
+                </Main>
+                <footer>somethings</footer>
+            </div>
+        );
+    }
+}

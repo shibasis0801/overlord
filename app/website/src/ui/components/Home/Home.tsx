@@ -32,12 +32,12 @@ export default class Home extends React.Component<HomeProps, HomeState> {
         return (
             <>
                 <h2>Home</h2>
-                <Button variant = "contained" color="primary">
-                    {this.props.prompt} {this.props.defaultName}
-                </Button>
-                {this.state.response &&
-                <p>{JSON.stringify(this.state.response)}</p>
-                }
+                {/*<Button variant = "contained" color="primary">*/}
+                {/*    {this.props.prompt} {this.props.defaultName}*/}
+                {/*</Button>*/}
+                {/*{this.state.response &&*/}
+                {/*<p>{JSON.stringify(this.state.response)}</p>*/}
+                {/*}*/}
             </>
         )
     }

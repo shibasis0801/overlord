@@ -1,0 +1,20 @@
+div.lab {
+    display: flex;
+    height: 100%;
+    /* border-radius: 16px; */
+}
+
+div.lab > aside {
+    width: 30%;
+    background-color: var(--base);
+    color: var(--on-base);
+    padding: 16px;
+}
+
+div.lab > main {
+    width: 70%;
+    background-color: var(--base-light);
+    color: var(--on-base);
+    padding: 16px;
+}
+

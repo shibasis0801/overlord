@@ -1,18 +1,23 @@
 import React, {Component} from "react";
 import ContainerUI from "./ContainerUI/ContainerUI";
+import "./common.css";
+import { withRouter } from "react-router";
 
 interface ContainerState {}
 
 interface ContainerProps {}
 
 
-export default class Container extends Component<ContainerProps, ContainerState> {
-    render(): React.ReactNode {
+class Container extends Component<ContainerProps, ContainerState> {
+    render() {
         return (
-            <>
-                <ContainerUI />
+            <ContainerUI>
                 {this.props.children}
-            </>
+            </ContainerUI>
         )
     }
 }
+
+// Mad TS
+// @ts-ignore
+export default withRouter(Container);
