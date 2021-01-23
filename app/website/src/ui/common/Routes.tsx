@@ -5,7 +5,7 @@ import {
 
 import Home from "../components/Home/Home";
 import React from "react";
-import {App} from "../../../../react/App";
+import { App } from "../../../../react/App";
 
 const Routes = () => (
     <Switch>

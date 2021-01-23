@@ -13,6 +13,9 @@ const ContainerUI = () => (
             <li>
                 <Link to="/users">Users</Link>
             </li>
+            <li>
+                <Link to="/rnw">RNW</Link>
+            </li>
         </ul>
     </nav>
 );

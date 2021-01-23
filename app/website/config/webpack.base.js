@@ -9,8 +9,7 @@ module.exports = {
     resolve: {
         extensions: [ ".ts", ".tsx", ".js", ".json", "web.js", "web.jsx" ],
         alias: {
-            "react-native$": "react-native-web",
-            "commonReact": commonReact
+            "react-native$": "react-native-web"
         }
     },
     module: {
@@ -18,13 +17,16 @@ module.exports = {
             {
                 test: /\.[jt]sx?/,
                 include: [
-                    webReact,
                     commonReact,
+                    webReact
                 ],
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ['module:metro-react-native-babel-preset'],
+                        cacheDirectory: true,
+                        presets: [
+                            'module:metro-react-native-babel-preset'
+                        ],
                         plugins: [
                             "react-native-web",
                             ["@babel/plugin-proposal-decorators", { legacy: true }]
@@ -49,7 +51,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./public/index.html"
+            template: path.resolve(__dirname, "../public/index.html")
         })
     ]
 }
