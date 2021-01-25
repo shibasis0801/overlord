@@ -1,5 +1,6 @@
 package com.overlord.app.compose.pages.dev
 
+import HelloWorld
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
 import androidx.compose.material.Text
@@ -14,10 +15,12 @@ import com.phoenixoverlord.pravegaapp.toast
 @Composable
 fun DevScreen(navController: NavController) {
     val context = AmbientContext.current
+    val message = HelloWorld().getMessage()
     Column {
         Text(text = "Dev Screen")
         Button(onClick = { (context as BaseActivity).toast("Pravega working with compose") }) {
             Text(text = "Dev Screen")
         }
+        Text(message)
     }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./lab.css";
+import VideoChat from "./VideoChat/VideoChat";
 
 // Convert this into HoC for other components.
 // Pass in Links and Switch accordingly
@@ -11,7 +12,7 @@ export default class Lab extends React.Component<{}, {}> {
 
                 </aside>
                 <main >
-                    {[1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(i => (<div>SPAN {i}</div>))}
+                    <VideoChat />
                 </main>
             </section>
         )

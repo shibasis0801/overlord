@@ -9,7 +9,13 @@ module.exports = {
         port: 3000,
         hot: true,
         publicPath: "/",
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: [
+            {
+                context: ["/signalling"],
+                target: "http://localhost:8080"
+            }
+        ]
     },
     devtool: "inline-source-map",
 

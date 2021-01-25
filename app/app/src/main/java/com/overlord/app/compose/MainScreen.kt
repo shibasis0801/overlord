@@ -12,7 +12,6 @@ import com.overlord.app.theme.OverlordAndroidTheme
 fun MainScreen() {
     val routes = Route.getRoutes()
     val navController = rememberNavController()
-
     OverlordAndroidTheme(darkTheme = false) {
         Scaffold(
             topBar = {},

@@ -27,7 +27,8 @@
     "react-native-web": "0.14.10",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
-    "roboto-fontface": "0.10.0"
+    "roboto-fontface": "0.10.0",
+    "core-web": "file:C:\\Users\\snigd\\IdeaProjects\\CrossPlatformRetrofit\\core\\build\\js\\packages\\core-web"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
