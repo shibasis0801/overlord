@@ -6,7 +6,6 @@ type VideoState = {
     messages: string[]
 }
 
-const helloWorld = new HelloWorld();
 export default class VideoChat extends React.Component<{}, VideoState> {
     state = {
         messages: []
@@ -39,7 +38,7 @@ export default class VideoChat extends React.Component<{}, VideoState> {
     render() {
         return (
             <>
-                <p>Message from MultiPlatform {helloWorld.getMessage()}</p>
+                <p>Message from MultiPlatform {(new HelloWorld()).getMessage()}</p>
                 <button onClick={() => this.sendMessage("Shibasis")}>
                     Click me to send data
                 </button>

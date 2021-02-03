@@ -8,6 +8,7 @@ import androidx.compose.ui.platform.AmbientContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import com.overlord.app.main.MainActivity
 import com.overlord.app.compose.pages.about.AboutScreen
 import com.overlord.app.compose.pages.dev.DevScreen
@@ -49,6 +50,7 @@ sealed class Route(
         fun SetupRouter(navController: NavHostController) {
             val activity = AmbientContext.current as MainActivity
             NavHost(navController, startDestination = Dev.name) {
+//                Nest Routes Here.
                 composable(Dev.name) {
                     DevScreen(navController)
                 }
