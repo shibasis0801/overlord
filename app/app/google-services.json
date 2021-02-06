@@ -8,6 +8,72 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:766069098100:android:7bce776f663e73f23ff321",
+        "android_client_info": {
+          "package_name": "com.firebase.uidemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766069098100-dbtoua0c4a8c5osmb7jsokdlh5dd5nvn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4Ge9zer-C6Av3NHodgQjTA_hKJmq1syw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766069098100-dbtoua0c4a8c5osmb7jsokdlh5dd5nvn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766069098100:android:f600e3dd435a154d3ff321",
+        "android_client_info": {
+          "package_name": "com.overlord.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766069098100-jggnd72p0jp5kt31f65ilicrsh7cffvi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.overlord.app",
+            "certificate_hash": "7ef61be940d29436b4af7a73a04627a478659889"
+          }
+        },
+        {
+          "client_id": "766069098100-dbtoua0c4a8c5osmb7jsokdlh5dd5nvn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4Ge9zer-C6Av3NHodgQjTA_hKJmq1syw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766069098100-dbtoua0c4a8c5osmb7jsokdlh5dd5nvn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:766069098100:android:8bdf7f47c94388bf3ff321",
         "android_client_info": {
           "package_name": "com.phoenixoverlord.pravega"
@@ -52,19 +118,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "766069098100-sh33l3gnsnn71dvs8211kfav562224ah.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.phoenixoverlord.pravegaapp",
-            "certificate_hash": "d02ca84accef939b633e4bb4df8b81d435806072"
-          }
-        },
-        {
           "client_id": "766069098100-g0v4qf4j7elceb999vrp6sd7ku1egsrb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.phoenixoverlord.pravegaapp",
             "certificate_hash": "7ef61be940d29436b4af7a73a04627a478659889"
+          }
+        },
+        {
+          "client_id": "766069098100-sh33l3gnsnn71dvs8211kfav562224ah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.phoenixoverlord.pravegaapp",
+            "certificate_hash": "d02ca84accef939b633e4bb4df8b81d435806072"
           }
         },
         {

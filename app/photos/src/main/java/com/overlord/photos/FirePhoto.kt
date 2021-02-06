@@ -10,6 +10,7 @@ Filters (maybe https://github.com/cats-oss/android-gpuimage)
 Wall and comments
 Videos using ExoPlayer
 Google Photos integration
+https://stackoverflow.com/questions/50560852/oauth-2-0-on-android
 Instagram share (simple)
 */
 

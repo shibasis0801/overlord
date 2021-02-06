@@ -2,6 +2,7 @@ import React, {ReactNode} from 'react';
 import {
     FlatList,
     Image,
+    NativeAppEventEmitter,
     SafeAreaView,
     ScrollView,
     SectionList,
@@ -17,6 +18,7 @@ import {DarkTheme, LightTheme, Theme } from "./src/utils/colors";
 
 const isDarkMode = true
 const theme = isDarkMode ? DarkTheme : LightTheme;
+NativeAppEventEmitter
 
 const styles = StyleSheet.create({
     container: {

@@ -46,7 +46,7 @@ kotlin {
         val commonMain by getting {
             dependsOn(build)
             dependencies {
-                implementation(project(":base"))
+                api(project(":base"))
             }
         }
         val commonTest by getting {
