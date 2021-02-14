@@ -12,6 +12,7 @@ version = "1.0-SNAPSHOT"
 object Versions {
     const val KTOR = "1.5.1"
     const val SERIALIZATION = "1.0.1"
+    const val COROUTINES = "1.4.2"
 }
 
 repositories {
@@ -57,9 +58,9 @@ kotlin {
         coroutines
         */
 
-        val build by creating {
-            kotlin.srcDir("${buildDir.absolutePath}/generated/source/kaptKotlin/")
-        }
+//        val build by creating {
+//            kotlin.srcDir("${buildDir.absolutePath}/generated/source/kaptKotlin/")
+//        }
 
         val commonMain by getting {
             dependencies {
@@ -70,7 +71,9 @@ kotlin {
 
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.SERIALIZATION}")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:${Versions.SERIALIZATION}")
-                implementation(project(":../common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}")
+
+//                implementation(project(":../common"))
 
             }
         }
@@ -79,33 +82,37 @@ kotlin {
             dependencies {
                 implementation(devNpm("terser-webpack-plugin", "4.2.3"))
                 implementation("io.ktor:ktor-client-js:${Versions.KTOR}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:${Versions.COROUTINES}")
             }
         }
 
         val springMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-okhttp:${Versions.KTOR}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${Versions.COROUTINES}")
             }
         }
 
         val androidMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-okhttp:${Versions.KTOR}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}")
             }
         }
     }
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(24)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
     }
 }
 
 tasks.named("build") {
+
     doLast {
         println("Hello from build pipeline")
         println("Please generate a File build.gradle with the aar, to easily import in android")

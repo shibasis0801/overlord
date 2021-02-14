@@ -2,13 +2,17 @@ package org.overlord.server.config
 
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration
 import io.r2dbc.postgresql.PostgresqlConnectionFactory
+import io.r2dbc.spi.Connection
 import io.r2dbc.spi.ConnectionFactories
 import io.r2dbc.spi.ConnectionFactory
 import io.r2dbc.spi.ConnectionFactoryOptions
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration
-import org.springframework.data.r2dbc.core.DatabaseClient
+import org.springframework.r2dbc.connection.ConnectionFactoryUtils
+import org.springframework.r2dbc.core.DatabaseClient
+import reactor.core.publisher.Mono
 
 
 // Need different params on Heroku.
@@ -26,29 +30,18 @@ class DataSourceConfiguration: AbstractR2dbcConfiguration() {
         }
     }
 
-    fun getLocalConnection() = PostgresqlConnectionFactory(
-                PostgresqlConnectionConfiguration.builder()
-                        .host("localhost")
-                        .database("dev")
-                        .username(credential("username"))
-                        .password(credential("password"))
-                        .build()
-        )
-
-
-    fun getHerokuConnection() = ConnectionFactories.get(
-            ConnectionFactoryOptions.parse(credential("url"))
-                    .mutate()
-                    .option(ConnectionFactoryOptions.USER, credential("username"))
-                    .option(ConnectionFactoryOptions.PASSWORD, credential("password"))
-                    .option(ConnectionFactoryOptions.PROTOCOL, "r2dbc")
-                    .build()
-    )
-
     @Bean
     override fun connectionFactory(): ConnectionFactory {
-        return if (credential("url").contains("localhost"))
-            getLocalConnection() else
-            getHerokuConnection()
+//        val localURL = "r2dbc:postgresql://localhost:5432/dev?password=postgres&user=postgres"
+//        val URL = getEnv("JDBC_DATABASE_URL", localURL).replace("jdbc", "r2dbc");
+//        return ConnectionFactories.get(URL)
+        return PostgresqlConnectionFactory(
+            PostgresqlConnectionConfiguration.builder()
+                .host("localhost")
+                .database("dev")
+                .username(credential("username"))
+                .password(credential("password"))
+                .build()
+        )
     }
 }

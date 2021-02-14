@@ -1,26 +1,22 @@
 package com.overlord.app.compose.pages.dev
 
 import HelloWorld
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.AmbientContext
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.overlord.app.main.AmbientActivity
+import com.overlord.app.compose.AmbientActivity
+import com.overlord.app.compose.AmbientViewModel
 import com.phoenixoverlord.pravegaapp.cloud.firebase.extensions.Firebase
-import com.phoenixoverlord.pravegaapp.framework.BaseActivity
 import com.phoenixoverlord.pravegaapp.toast
 
 val realtimeDB = Firebase.realtime
@@ -38,6 +34,10 @@ fun testFirebase() {
 fun DevScreen(navController: NavController) {
     val message = HelloWorld().getMessage()
     val activity = AmbientActivity.current
+    val viewModel = AmbientViewModel.current
+    val getEcho by viewModel.getEcho.observeAsState("")
+    val postEcho by viewModel.postEcho.observeAsState("")
+
     var textState by remember { mutableStateOf("") }
     //  Create an observable ArrayList
     var regimenList by remember { mutableStateOf(listOf<String>()) }
@@ -80,5 +80,16 @@ fun DevScreen(navController: NavController) {
         }
 
 
+        Button(modifier = Modifier.padding(8.dp), onClick = {
+            viewModel.getResponse()
+        }) {
+            Text(text = getEcho)
+        }
+
+        Button(modifier = Modifier.padding(8.dp), onClick = {
+            viewModel.postResponse()
+        }) {
+            Text(text = postEcho)
+        }
     }
 }

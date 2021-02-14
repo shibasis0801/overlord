@@ -12,7 +12,6 @@ expect class HelloWorld {
     fun getMessage(): String
 }
 
-expect val client: HttpClient
 
 // For Protobuf, feature needs to be created
 // OkHttp is automatically used
@@ -34,9 +33,33 @@ val http = HttpClient() {
     }
 }
 
-fun test() {
 
-}
+suspend fun getRequest(request: String) = http.get<String>(request)
+
+//sealed class RequestType {
+//    object GET: RequestType()
+//    object POST: RequestType()
+//    object PUT: RequestType()
+//}
+//
+//
+//
+//fun test(request: RequestType) = fun() {
+//    // Return a function for every such request type
+//    when(request) {
+//        RequestType.GET -> {
+//
+//        }
+//        RequestType.POST -> {
+//
+//        }
+//        RequestType.PUT -> {
+//
+//        }
+//    }
+//}
+
+
 /*
 
 server("heroku.predictor") {
