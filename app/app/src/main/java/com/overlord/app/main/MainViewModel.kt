@@ -16,7 +16,6 @@ class MainViewModel: ViewModel() {
             getEcho.postValue(
                 FriendAPI.getEchoMessage("Shibasis")?.content ?: "NULL RESPONSE"
             )
-//            getRequest("/friends")
         }
     }
 
