@@ -1,0 +1,1 @@
+echo "Push the project listenSQL to GCP Compute engine and do database migrations"

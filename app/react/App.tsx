@@ -18,7 +18,6 @@ import {DarkTheme, LightTheme, Theme } from "./src/utils/colors";
 
 const isDarkMode = true
 const theme = isDarkMode ? DarkTheme : LightTheme;
-NativeAppEventEmitter
 
 const styles = StyleSheet.create({
     container: {

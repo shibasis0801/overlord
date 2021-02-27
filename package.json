@@ -1,0 +1,27 @@
+{
+  "name": "overlordlab",
+  "version": "1.0.0",
+  "description": "Personal Repo for Shibasis Patnaik",
+  "scripts": {
+    "pushServer": "node run.js listenSQL.pushServer"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shibasis0801/overlord.git"
+  },
+  "keywords": [
+    "portfolio",
+    "experiments",
+    "android",
+    "react",
+    "ktor",
+    "unity",
+    "dotnet"
+  ],
+  "author": "Shibasis Patnaik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shibasis0801/overlord/issues"
+  },
+  "homepage": "https://github.com/shibasis0801/overlord#readme"
+}
