@@ -15,10 +15,7 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
 import com.overlord.app.BuildConfig
 import com.phoenixoverlord.pravegaapp.framework.BaseActivity
-import dagger.hilt.android.AndroidEntryPoint
 
-
-@AndroidEntryPoint
 class ReactActivity : BaseActivity(), DefaultHardwareBackBtnHandler {
     fun setupInstanceManager() {}
     fun setupRootView() {
