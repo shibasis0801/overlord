@@ -1,7 +1,7 @@
 import React from "react";
 
-import { HelloWorld } from "core-web/kotlin/core-web";
-
+// import { HelloWorld } from "core-web/kotlin/core-web";
+// "core-web": "file:C:\\Users\\snigd\\IdeaProjects\\OverlordLab\\core\\build\\js\\packages\\core-web"
 type VideoState = {
     messages: string[]
 }
@@ -38,7 +38,7 @@ export default class VideoChat extends React.Component<{}, VideoState> {
     render() {
         return (
             <>
-                <p>Message from MultiPlatform {(new HelloWorld()).getMessage()}</p>
+                {/*<p>Message from MultiPlatform {(new HelloWorld()).getMessage()}</p>*/}
                 <button onClick={() => this.sendMessage("Shibasis")}>
                     Click me to send data
                 </button>

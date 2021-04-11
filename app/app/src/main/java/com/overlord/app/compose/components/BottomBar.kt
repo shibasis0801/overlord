@@ -21,7 +21,7 @@ fun BottomBar(
         val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
         routes.forEach { route ->
             BottomNavigationItem(
-                icon = { Icon(route.icon) },
+                icon = { Icon(route.icon, route.name) },
                 selected = currentRoute == route.name, // how to put route params
                 onClick = {
                     navController.navigate(route.name) {

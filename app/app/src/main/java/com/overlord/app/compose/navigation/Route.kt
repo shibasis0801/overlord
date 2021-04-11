@@ -4,7 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.AmbientContext
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -48,7 +48,7 @@ sealed class Route(
         @JvmStatic
         @Composable
         fun SetupRouter(navController: NavHostController) {
-            val activity = AmbientContext.current as MainActivity
+            val activity = LocalContext.current as MainActivity
             NavHost(navController, startDestination = Dev.name) {
 //                Nest Routes Here.
                 composable(Dev.name) {
