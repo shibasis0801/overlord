@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "shibasis-patnaik",
+    "production": "shibasis-patnaik"
+  }
+}

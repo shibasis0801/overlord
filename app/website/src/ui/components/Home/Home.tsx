@@ -7,13 +7,15 @@ export interface HomeProps {
 }
 
 export interface HomeState {
-    response: object | null
+    response: object | null,
+    supported: string
 }
 
 export default class Home extends React.Component<HomeProps, HomeState> {
     constructor(props: HomeProps) {
         super(props);
         this.state = {
+            supported: "mediaDevices" in navigator ? "Supported" : "Not Supported",
             response: null
         }
     }
@@ -24,21 +26,35 @@ export default class Home extends React.Component<HomeProps, HomeState> {
             .then(response => this.setState(() => ({
                 response
             })))
+
+        const player = document.getElementById('player');
+
+        const constraints = {
+            video: true,
+        };
+
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then((stream) => {
+            player.srcObject = stream;
+        });
+
     }
 
 
 
     render() {
         return (
-            <>
+            <div>
                 <h2>Home</h2>
-                {/*<Button variant = "contained" color="primary">*/}
-                {/*    {this.props.prompt} {this.props.defaultName}*/}
-                {/*</Button>*/}
-                {/*{this.state.response &&*/}
-                {/*<p>{JSON.stringify(this.state.response)}</p>*/}
-                {/*}*/}
-            </>
+                <div>
+                    {this.state.response &&
+                    <p>{JSON.stringify(this.state.response)}</p>}
+                </div>
+                <div>
+                    {this.state.supported}
+                </div>
+                <video id="player" controls autoPlay />
+            </div>
         )
     }
 }

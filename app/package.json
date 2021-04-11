@@ -10,7 +10,8 @@
     "forwardPorts": "adb -d reverse tcp:8081 tcp:8081",
     "web": "webpack serve --progress --profile --watch --config website/config/webpack.dev.js",
     "build": "webpack --mode production --config website/config/webpack.prod.js",
-    "upload": "npm run build && cd website && firebase deploy",
+    "deployDev": "npm run build && cd website && firebase deploy",
+    "deployProd": "npm run build && cd website && firebase deploy -P production",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
@@ -27,8 +28,7 @@
     "react-native-web": "0.14.10",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
-    "roboto-fontface": "0.10.0",
-    "core-web": "file:C:\\Users\\snigd\\IdeaProjects\\CrossPlatformRetrofit\\core\\build\\js\\packages\\core-web"
+    "roboto-fontface": "0.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
