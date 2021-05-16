@@ -35,6 +35,9 @@ export default class Home extends React.Component<HomeProps, HomeState> {
                     {this.state.response &&
                     <p>{JSON.stringify(this.state.response)}</p>}
                 </div>
+                <button style={{width: "100%", height: "100px"}} onClick={() => android && android.showToast() }>
+                    Click for native event
+                </button>
             </div>
         )
     }

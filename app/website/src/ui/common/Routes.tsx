@@ -9,6 +9,8 @@ import { App } from "../../../../react/App";
 import {LinkProps} from "./subcomponents/WrappedLink";
 import Lab from "../components/Lab/Lab";
 import {RevieveView} from "../components/apps/Revieve/RevieveView";
+import {WebcamTester} from "../components/apps/WebcamTester";
+import {CameraTester} from "../components/apps/CameraTester";
 
 export const RouteUIConfig: LinkProps[] = [
     { link: "/", text: "Home" },
@@ -32,6 +34,13 @@ const Routes = () => (
         <Route path="/revieve">
             <RevieveView />
         </Route>
+        <Route path="/react-webcam">
+            <WebcamTester />
+        </Route>
+        <Route path="/camera-tester">
+            <CameraTester />
+        </Route>
+
         <Route path="/">
             <Home prompt="I am " defaultName="Shibasis" />
         </Route>

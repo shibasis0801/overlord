@@ -12,7 +12,11 @@ const config = {
     script: "https://d38knilzwtuys1.cloudfront.net/revieve-plugin-v4/revieve-plugin-loader.js",
     partner_id: "9KpsLizwYK",
     locale: "en",
-    env: "test"
+    env: "test",
+    onUserWantsToOpenCamera(okToOpenCamera: any) {
+        console.log("Camera Request", okToOpenCamera);
+        okToOpenCamera();
+    }
 }
 
 export class RevieveView extends React.Component<Props, State> {
@@ -39,10 +43,7 @@ export class RevieveView extends React.Component<Props, State> {
 
         document.body.appendChild(htmlScriptElement);
     }
-
     render() {
-        return (
-            <video id="player" controls autoPlay />
-        );
-    };
+        return (<></>);
+    }
 };

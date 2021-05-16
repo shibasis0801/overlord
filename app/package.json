@@ -28,6 +28,7 @@
     "react-native-web": "0.14.10",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
+    "react-webcam": "^5.2.3",
     "roboto-fontface": "0.10.0"
   },
   "devDependencies": {

@@ -27,12 +27,13 @@ export default class ContainerUI extends React.Component<{}, ContainerState> {
         const title = getTitle();
         const theme = getTheme();
         return (
-            <div id="container" className={theme}>
-                <Header title={title}/>
+            // <div id="container" className={theme}>
+            <div>
+                {/*<Header title={title}/>*/}
                 <Main>
                     {this.props.children}
                 </Main>
-                <footer>somethings</footer>
+                {/*<footer>somethings</footer>*/}
             </div>
         );
     }
