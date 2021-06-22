@@ -5,5 +5,5 @@ object Transform {
         System.loadLibrary("native-lib")
     }
 
-    external fun arraySum(floatArray: FloatArray): Float
+//    external fun arraySum(floatArray: FloatArray): Float
 }

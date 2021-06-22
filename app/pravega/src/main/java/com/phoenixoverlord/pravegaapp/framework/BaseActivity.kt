@@ -1,6 +1,7 @@
 package com.phoenixoverlord.pravegaapp.framework
 
 import android.content.Intent
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.phoenixoverlord.pravegaapp.mechanisms.ActivityResultHandler
 import com.phoenixoverlord.pravegaapp.mechanisms.NotificationModule
@@ -18,6 +19,7 @@ import com.phoenixoverlord.pravegaapp.utils.LoopingAtomicInteger
  *
  */
 
+
 abstract class BaseActivity : AppCompatActivity() {
     private val loopingAtomicInteger = LoopingAtomicInteger(100, 10000)
     private val activityResultHandler = ActivityResultHandler()
@@ -26,10 +28,10 @@ abstract class BaseActivity : AppCompatActivity() {
     private val permissionsModule = PermissionsModule()
 
 
-//    Camera API has changed. Need to rewrite
-//    private val camera = CameraModule()
-//    /** CameraModule */
-//    fun takePhoto(prompt : String) = camera.takePhoto(this, prompt)
+    open fun useComponents(vararg components: Component) {
+        components.forEach { lifecycle.addObserver(it) }
+
+    }
 
     /** ActivityResultModule */
     fun startActivityGetResult(
@@ -54,8 +56,6 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         activityResultHandler.onActivityResult(requestCode, resultCode, data)
-        //    Camera API has changed. Need to rewrite
-        //    camera.internalOnActivityResult(this, requestCode, resultCode, data)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

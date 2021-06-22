@@ -15,14 +15,17 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
 import com.overlord.app.compose.AmbientActivity
 import com.overlord.app.compose.AmbientViewModel
+import com.overlord.app.compose.navigation.Route
 import com.overlord.app.react.WebActivity
 import com.phoenixoverlord.pravegaapp.cloud.firebase.extensions.Firebase
 import com.phoenixoverlord.pravegaapp.framework.extensions.finishAndStart
 import com.phoenixoverlord.pravegaapp.toast
 
 val realtimeDB = Firebase.realtime
+// memory leak, fix later
 val firestoreDB = Firebase.firestore
 
 fun testFirebase() {
@@ -99,6 +102,12 @@ fun DevScreen(navController: NavController) {
             activity.finishAndStart(WebActivity::class.java)
         }) {
             Text(text = "Open Website")
+        }
+
+        Button(modifier = Modifier.padding(8.dp), onClick = {
+            navController.navigate(Route.Pravega.name)
+        }) {
+            Text(text = "Start Pravega")
         }
     }
 }

@@ -12,6 +12,7 @@ export class WebcamTester extends React.Component<Props, State> {
     render() {
         return (
             <div>
+                <p>REACT-WEBCAM</p>
                 <Webcam
                     audio={false}
                     screenshotFormat={"image/jpeg"}

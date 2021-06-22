@@ -22,6 +22,7 @@ export class CameraTester extends React.Component<Props, State> {
     render() {
         return (
             <div>
+                <p>NORMAL CAMERA</p>
                 <video ref={ref => this.video = ref} autoPlay={true} />
             </div>
         );
