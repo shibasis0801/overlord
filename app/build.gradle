@@ -137,7 +137,8 @@ buildscript {
 
         external = [
                 "id.zelory:compressor:3.0.0",
-                "com.github.GrenderG:Toasty:1.4.2"
+                "com.github.GrenderG:Toasty:1.4.2",
+//                "com.anggrayudi:storage:0.8.1" //Use if StorageComponent does not pan out.
         ]
 
 

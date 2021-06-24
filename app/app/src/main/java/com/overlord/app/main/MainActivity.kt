@@ -9,11 +9,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
 import com.overlord.app.R
 import com.phoenixoverlord.pravegaapp.framework.BaseActivity
-import com.phoenixoverlord.pravegaapp.mechanisms.CameraComponent
+import com.phoenixoverlord.pravegaapp.mechanisms.base.AnalyzerComponent
+import com.phoenixoverlord.pravegaapp.mechanisms.compounds.CameraComponent
+import com.phoenixoverlord.pravegaapp.mechanisms.elements.StorageComponent
+import com.phoenixoverlord.pravegaapp.mechanisms.helpers.buildCapture
+import com.phoenixoverlord.pravegaapp.mechanisms.helpers.buildPreview
+import com.phoenixoverlord.pravegaapp.ml.analysers.vision.LabellingAnalyser
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-typealias LumaListener = (luma: Double) -> Unit
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
@@ -26,7 +30,7 @@ class MainActivity : BaseActivity() {
     lateinit var firestoreDB: FirebaseFirestore
 
     @Inject
-    lateinit var storage: StorageReference
+    lateinit var storageDB: StorageReference
 
     @Inject
     lateinit var auth: FirebaseAuth
@@ -34,6 +38,8 @@ class MainActivity : BaseActivity() {
     private val mainViewModel by viewModels<MainViewModel>()
 
     lateinit var camera: CameraComponent
+    lateinit var storage: StorageComponent
+    lateinit var analyzer: AnalyzerComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +47,23 @@ class MainActivity : BaseActivity() {
 //            MainScreen()
 //        }
         setContentView(R.layout.activity_main)
-        camera = CameraComponent(this, findViewById(R.id.viewFinder))
+
+        analyzer = LabellingAnalyser(this)
+        storage = StorageComponent(this)
+        camera = CameraComponent(this, storage, analyzer)
+
+        useComponents(
+            analyzer,
+            storage,
+            camera
+        )
+
+
+        val preview = buildPreview(findViewById(R.id.viewFinder))
+        val capture = buildCapture()
+        camera.start(preview, capture)
         
-        useComponents(camera)
-        
-        findViewById<Button>(R.id.camera_capture_button).setOnClickListener { camera.takePhoto(this) }
+        findViewById<Button>(R.id.camera_capture_button).setOnClickListener { camera.takePhoto() }
 
     }
 }
