@@ -24,9 +24,10 @@ abstract class AnalyzerComponent(activity: BaseActivity): Component(activity) {
         executor.shutdown()
     }
 
-    fun buildAnalyser() = ImageAnalysis
-        .Builder()
-        .build()
+
+    open fun buildAnalysis(builder: ImageAnalysis.Builder) = builder.build()
+
+    fun buildAnalyser() = buildAnalysis(ImageAnalysis.Builder())
         .apply { setAnalyzer(executor, createAnalyser()) }
 }
 

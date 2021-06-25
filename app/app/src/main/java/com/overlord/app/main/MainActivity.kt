@@ -43,12 +43,10 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContent {
-//            MainScreen()
-//        }
+
         setContentView(R.layout.activity_main)
 
-        analyzer = LabellingAnalyser(this)
+        analyzer = LabellingAnalyser(this, 0.7f)
         storage = StorageComponent(this)
         camera = CameraComponent(this, storage, analyzer)
 
@@ -63,7 +61,7 @@ class MainActivity : BaseActivity() {
         val capture = buildCapture()
         camera.start(preview, capture)
         
-        findViewById<Button>(R.id.camera_capture_button).setOnClickListener { camera.takePhoto() }
+        findViewById<Button>(R.id.camera_capture_button).setOnClickListener { camera.savePicture() }
 
     }
 }

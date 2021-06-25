@@ -30,7 +30,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun useComponents(vararg components: Component) {
         components.forEach { lifecycle.addObserver(it) }
-
     }
 
     /** ActivityResultModule */

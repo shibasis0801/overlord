@@ -9,9 +9,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -19,7 +16,7 @@ import androidx.navigation.compose.navigate
 import com.overlord.app.compose.AmbientActivity
 import com.overlord.app.compose.AmbientViewModel
 import com.overlord.app.compose.navigation.Route
-import com.overlord.app.react.WebActivity
+import com.overlord.app.activities.WebActivity
 import com.phoenixoverlord.pravegaapp.cloud.firebase.extensions.Firebase
 import com.phoenixoverlord.pravegaapp.framework.extensions.finishAndStart
 import com.phoenixoverlord.pravegaapp.toast

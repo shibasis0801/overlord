@@ -2,7 +2,3 @@ include ':app', ':pravega'
 include ':chat', ':photos'
 include ':core-debug'
 rootProject.name = "OverlordAndroid"
-
-
-
-apply from: file("./node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)

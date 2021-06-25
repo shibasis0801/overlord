@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name=".react.WebActivity"
+            android:name=".activities.WebActivity"
             android:exported="true"
             android:label="Shibasis Patnaik"
             >
@@ -48,11 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".react.ReactActivity"
-            android:label="ReactActivity" >
-        </activity>
-        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
 
 </manifest>

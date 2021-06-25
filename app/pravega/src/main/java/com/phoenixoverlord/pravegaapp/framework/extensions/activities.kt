@@ -6,8 +6,14 @@ import android.content.Intent.FLAG_ACTIVITY_NO_ANIMATION
 import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.coroutineScope
+import com.phoenixoverlord.pravegaapp.framework.BaseActivity
 import es.dmoral.toasty.Toasty
+import kotlinx.coroutines.CoroutineScope
+import java.util.concurrent.Executor
 
 fun AppCompatActivity.getSimpleName() : String {
     return this.javaClass.simpleName
@@ -58,3 +64,9 @@ fun AppCompatActivity.safeIntentDispatch(intent : Intent) {
 }
 
 fun PackageManager.intentHandlerExists(intent : Intent) = intent.resolveActivity(this) != null
+
+val BaseActivity.mainExecutorCompat: Executor
+    get() = ContextCompat.getMainExecutor(this)
+
+val BaseActivity.scope: LifecycleCoroutineScope
+    get() = lifecycle.coroutineScope
