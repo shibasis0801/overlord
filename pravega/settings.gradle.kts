@@ -12,5 +12,5 @@ pluginManagement {
         }
     }
 }
-rootProject.name = "pravega"
+rootProject.name = "shibasispatnaik/pravega"
 

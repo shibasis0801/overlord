@@ -15,7 +15,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.shibasispatnaik"
+group = "shibasispatnaik"
 version = "0.1.0-SNAPSHOT"
 
 
@@ -48,7 +48,7 @@ kotlin {
 
             webpackTask {
                 report = true
-                outputFileName = "pravega.js"
+                outputFileName = "shibasispatnaik.pravega.js"
 //                sourceMaps = true //not supported in IR yet
             }
         }

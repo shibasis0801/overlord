@@ -1,4 +1,4 @@
-package com.shibasispatnaik.pravega.ui
+package shibasispatnaik.pravega.ui
 
 data class Theme(
     val primaryLight: String,

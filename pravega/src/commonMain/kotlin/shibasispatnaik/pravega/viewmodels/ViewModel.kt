@@ -1,4 +1,4 @@
-package com.shibasispatnaik.pravega.viewmodels
+package shibasispatnaik.pravega.viewmodels
 
 /*
 Shared viewmodels across desktop, mobile and android
