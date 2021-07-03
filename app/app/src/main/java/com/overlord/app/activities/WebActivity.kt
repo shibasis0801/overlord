@@ -43,6 +43,7 @@ class WebActivity : BaseActivity() {
                         request?.grant(request.resources)
                     }
                 }
+
                 val dev = "http://192.168.0.217:8000"
                 loadUrl(dev)
             }

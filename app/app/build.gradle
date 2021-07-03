@@ -24,7 +24,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
         useIR = true
     }
 
@@ -40,8 +40,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
 }
@@ -66,3 +66,6 @@ dependencies {
     implementation dagger
     kapt daggerKapt
 }
+
+apply from: new File(rootProject.projectDir, 'node_modules/liquidcore/include.V8.gradle')
+//apply from: new File(rootProject.projectDir, '.liquidcore/liquidcore.build.gradle')
