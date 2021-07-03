@@ -26,11 +26,12 @@ supplyAsync -> complete/completeExceptionally
 
 actual class Completable<T> actual constructor(executor: CompletableExecutor<T>): CompletableFuture<T>() {
 
+//    This will not work. but is close. Read CompletableFuture.
     init {
         executor({
-            completeAsync { it }
+            completedFuture(it)
         }, {
-            completeExceptionally(it)
+            supplyAsync { it }
         })
     }
 
@@ -44,6 +45,19 @@ actual class Completable<T> actual constructor(executor: CompletableExecutor<T>)
     actual companion object {
         actual fun <T> resolve(value: T) = supplyAsync { value } as Completable<T>
         actual fun reject(value: Throwable) = failedFuture<Nothing>(value) as Completable<Nothing>
+    }
+}
+
+fun t() {
+
+    val y = 5
+    val x  = Completable<String> { resolve, reject ->
+        if (y == 5) {
+            resolve("Yes")
+        }
+        else {
+            reject(Throwable("No"))
+        }
     }
 }
 

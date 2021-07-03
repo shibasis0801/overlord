@@ -17,3 +17,16 @@ actual class Completable<T> actual constructor(executor: CompletableExecutor<T>)
 
     }
 }
+
+fun t() {
+
+    val y = 5
+    val x  = Completable<String> { resolve, reject ->
+        if (y == 5) {
+            resolve("Yes")
+        }
+        else {
+            reject(Throwable("No"))
+        }
+    }
+}

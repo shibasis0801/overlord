@@ -66,6 +66,7 @@ const Header = (props: FunctionalProps) => themedText({ ...props, style: { fontS
 const Title = (props: FunctionalProps) => themedText({ ...props, style: { fontSize: 24 } })
 const Section = (props: FunctionalProps) => themedText({ ...props, style: { fontSize: 16 } })
 
+// RADAR CHART PLOX
 // Levels -> (one indexed array)
 const skillLevels = [ "", "understand", "build simple", "build proper", "thrive", "contribute", "mentor" ]
 const Details = [
