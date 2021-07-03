@@ -24,42 +24,38 @@ resolve/reject
 supplyAsync -> complete/completeExceptionally
  */
 
-actual class Completable<T> actual constructor(executor: CompletableExecutor<T>): CompletableFuture<T>() {
+actual class Completable<T> {
+    val future: CompletableFuture<T>
 
-//    This will not work. but is close. Read CompletableFuture.
-    init {
-        executor({
-            completedFuture(it)
-        }, {
-            supplyAsync { it }
-        })
+    actual constructor(executor: CompletableExecutor<T>) {
+        future = CompletableFuture<T>()
+        executor(future::complete, future::completeExceptionally)
     }
 
-    actual fun <R> then(onFulfilled: ((T) -> R)?) =
-        super.thenApplyAsync(onFulfilled) as Completable<R>
+    constructor(newFuture: CompletableFuture<T>) {
+        future = newFuture
+    }
 
-    actual fun <R> catch(onRejected: (Throwable) -> R) =
-        super.handleAsync { _, err -> onRejected(err) } as Completable<R>
+    actual fun <R> then(onFulfilled: ((T) -> R)?) = Completable<R>(future.thenApplyAsync(onFulfilled))
+    actual fun <R> catch(onRejected: (Throwable) -> R) = Completable<R>(future.handle { _, u -> onRejected(u) })
 
 
     actual companion object {
-        actual fun <T> resolve(value: T) = supplyAsync { value } as Completable<T>
-        actual fun reject(value: Throwable) = failedFuture<Nothing>(value) as Completable<Nothing>
+        actual fun <T> resolve(value: T) = Completable<T> { resolve, _ -> resolve(value)  }
+        actual fun reject(error: Throwable) = Completable<Nothing> { _, reject -> reject(error) }
     }
 }
 
-fun t() {
-
-    val y = 5
-    val x  = Completable<String> { resolve, reject ->
-        if (y == 5) {
-            resolve("Yes")
+fun main(args: Array<String>) {
+    Completable<String> { resolve, reject ->
+        if (Math.random() < 0.7) {
+            Thread.sleep(1000)
+            resolve("Success")
         }
         else {
-            reject(Throwable("No"))
+            reject(Error("SHIBASISERROR"))
         }
+    }.then {
+        println(it)
     }
 }
-
-
-//Compiler Plugins, not exactly related but look into them for more power than reflection

@@ -2,18 +2,25 @@ package com.shibasispatnaik.kclient
 
 import kotlin.js.Promise
 
-actual class Completable<T> actual constructor(executor: CompletableExecutor<T>): Promise<T>(executor) {
-    actual override fun <R> catch(onRejected: (Throwable) -> R) =
-        super.catch(onRejected) as Completable<R>
+actual class Completable<T> {
+    val promise: Promise<T>
 
-    actual override fun <R> then(onFulfilled: ((T) -> R)?) =
-        super.then(onFulfilled) as Completable<R>
+    actual constructor(executor: CompletableExecutor<T>) {
+        promise = Promise(executor)
+    }
+
+    constructor(newPromise: Promise<T>) {
+        promise = newPromise
+    }
+
+    actual fun <R> then(onFulfilled: ((T) -> R)?) = Completable(promise.then(onFulfilled))
+
+    actual fun <R> catch(onRejected: (Throwable) -> R) = Completable(promise.catch(onRejected))
+
 
     actual companion object {
-//        public fun <S> all(promise: Array<out Promise<S>>): Promise<Array<out S>> = this.all(promise)
-
-        actual fun <T> resolve(value: T) = Promise.resolve(value) as Completable
-        actual fun reject(value: Throwable) = Promise.reject(value) as Completable<Nothing>
+        actual fun <T> resolve(value: T) = Completable(Promise.resolve(value))
+        actual fun reject(error: Throwable) = Completable(Promise.reject(error))
 
     }
 }
