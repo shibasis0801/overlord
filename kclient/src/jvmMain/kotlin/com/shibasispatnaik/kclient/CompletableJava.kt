@@ -27,7 +27,7 @@ supplyAsync -> complete/completeExceptionally
 actual class Completable<T> {
     val future: CompletableFuture<T>
 
-    actual constructor(executor: CompletableExecutor<T>) {
+    actual constructor(executor: ResolveReject<T>) {
         future = CompletableFuture<T>()
         executor(future::complete, future::completeExceptionally)
     }
@@ -45,6 +45,8 @@ actual class Completable<T> {
         actual fun reject(error: Throwable) = Completable<Nothing> { _, reject -> reject(error) }
     }
 }
+
+fun<T> CompletableFuture<T>.toCompletable() = Completable(this)
 
 fun main(args: Array<String>) {
     Completable<String> { resolve, reject ->
